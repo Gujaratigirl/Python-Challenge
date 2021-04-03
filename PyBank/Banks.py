@@ -19,6 +19,7 @@ with open(bankcsv, 'r') as text:
     csvreader = csv.reader(text, delimiter=',')
     #moves to the first row with data
     header=next(csvreader)
+    # first_row = next(csvreader)-- couldn't get this to work so just used first value.
 
     for bank_value in csvreader:
         bank_date.append(bank_value[0])
