@@ -52,6 +52,7 @@ bank_date_length=len(bank_date)
 bank_change.pop(0)
 
 #average_change = (format(average(bank_change), '.2f')
+average_percent = f"{format(average(bank_change), '.2f')}"
 
 #Print out results
 print("                                ")
@@ -59,10 +60,11 @@ print(f"Financial Analysis")
 print("------------------------------------")
 print(f"Total Months: {bank_date_length}")
 print(f"Total: ${bank_sum}")
-print(f"Average Change: ${format(average(bank_change), '.2f')}%" )#  this is to drive number of decimil places
+print(f"Average Change: ${format(average(bank_change), '.2f')}" )#  this is to drive number of decimil places
 print(f"Greatest Increase in Profits: {max_month} (${max_value})" )
 print(f"Greatest Decrease in Profits: {min_month} (${min_value})" )
 print("                                ")
+
 
 # Specify the file to write to
 output_path = os.path.join("..", 'PYBANK', "analysis", "analysis.csv")
@@ -77,6 +79,6 @@ with open(output_path, 'w', newline='') as csvfile:
     csvwriter.writerow(["------------------------------------"])
     csvwriter.writerow([f"Total Months: {bank_date_length}"])
     csvwriter.writerow([f"Total: ${bank_sum}"])
-    csvwriter.writerow([f"Average Change: ${average(bank_change)}%"])
+    csvwriter.writerow([f"Average Change: ${average_percent}"])
     csvwriter.writerow([f"Greatest Increase in Profits: {max_month} (${max_value})" ])
     csvwriter.writerow([f"Greatest Decrease in Profits: {min_month} (${min_value})" ])
